@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121819" media="(prefers-color-scheme: dark)">
+  <title>Meine Werte</title>
+  <meta name="description" content="Die fünf wichtigsten persönlichen Werte ermitteln: 200 Werte, immer zwei im Duell.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- Start -->
+    <section id="view-start" class="view" aria-labelledby="start-title">
+      <div class="start">
+        <p class="eyebrow">200 Werte, immer zwei im Duell</p>
+        <h1 id="start-title">Meine wichtigsten Werte</h1>
+        <p class="lead">Es erscheinen jeweils zwei Werte. Ein Tipp auf den Wert, der im eigenen Leben schwerer wiegt, genügt. Aus den Entscheidungen entsteht eine Rangliste, am Ende stehen die Top 3.</p>
+        <ul class="facts">
+          <li><strong>Etwa 250 Duelle</strong>, rund 8 bis 10 Minuten</li>
+          <li>Jederzeit pausieren: der Stand bleibt auf diesem Gerät gespeichert</li>
+          <li>Es gibt keine richtigen oder falschen Antworten, nur die spontane Entscheidung</li>
+        </ul>
+        <div class="start-actions">
+          <button id="btn-start" class="btn btn-primary" type="button">Start</button>
+          <button id="btn-resume" class="btn btn-secondary" type="button" hidden>Fortsetzen</button>
+          <p id="resume-info" class="small" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Duell -->
+    <section id="view-duel" class="view" aria-labelledby="duel-question" hidden>
+      <header class="duel-head">
+        <div class="progress-row">
+          <span id="progress-text" class="progress-text">Duell 1 von 250</span>
+          <button id="btn-finish" class="link-btn" type="button" hidden>Jetzt auswerten</button>
+        </div>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Fortschritt">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <h2 id="duel-question" class="question">Welcher Wert ist wichtiger?</h2>
+      </header>
+
+      <div class="duel-cards">
+        <button id="card-0" class="card" type="button" data-side="0">
+          <span class="card-tag"></span>
+          <span class="card-name"></span>
+          <span class="card-text"></span>
+        </button>
+        <div class="vs" aria-hidden="true"><span>oder</span></div>
+        <button id="card-1" class="card" type="button" data-side="1">
+          <span class="card-tag"></span>
+          <span class="card-name"></span>
+          <span class="card-text"></span>
+        </button>
+      </div>
+
+      <footer class="duel-foot">
+        <button id="btn-undo" class="btn btn-ghost" type="button">Zurück</button>
+        <button id="btn-pause" class="btn btn-ghost" type="button">Pausieren</button>
+      </footer>
+    </section>
+
+    <!-- Ergebnis -->
+    <section id="view-result" class="view" aria-labelledby="result-title" hidden>
+      <div class="result">
+        <p class="eyebrow">Ergebnis nach <span id="result-count">0</span> Duellen</p>
+        <h2 id="result-title">Meine Top 3</h2>
+
+        <ol id="podium" class="podium"></ol>
+
+        <h3 class="sub">Platz 4 und 5</h3>
+        <ol id="runners" class="runners" start="4"></ol>
+
+        <p id="result-note" class="note"></p>
+
+        <details class="more">
+          <summary>Weitere Plätze bis 20</summary>
+          <ol id="more-list" class="more-list" start="6"></ol>
+        </details>
+
+        <div class="result-actions">
+          <button id="btn-refine" class="btn btn-primary" type="button">Genauer machen (+50 Duelle)</button>
+          <button id="btn-copy" class="btn btn-secondary" type="button">Ergebnis kopieren</button>
+          <button id="btn-restart" class="btn btn-ghost" type="button">Neu beginnen</button>
+          <p id="copy-info" class="small" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="data/werte.js"></script>
+  <script src="rank.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
